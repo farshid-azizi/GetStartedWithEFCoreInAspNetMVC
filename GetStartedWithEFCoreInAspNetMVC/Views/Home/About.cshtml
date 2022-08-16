@@ -1,0 +1,30 @@
+﻿@model IEnumerable<GetStartedWithEFCoreInAspNetMVC.Models.ViewModels.DateOfBirthGroup>
+
+@{
+    ViewData["Title"] = "Customer Body Statistics";
+}
+
+<h2>Customers Body Statistics</h2>
+
+<table>
+    <tr>
+        <th>
+           Date Of Birth
+        </th>
+        <th>
+            Customers
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @item.CustomerCount
+            </td>
+        </tr>
+    }
+</table>

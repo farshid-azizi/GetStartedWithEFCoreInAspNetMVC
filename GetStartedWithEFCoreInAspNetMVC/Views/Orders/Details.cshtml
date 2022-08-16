@@ -1,0 +1,52 @@
+﻿@model GetStartedWithEFCoreInAspNetMVC.Models.OrderAggregate.Order
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CustomerID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CustomerID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderState)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OrderState)
+        </dd>
+         <dd class = "col-sm-10">
+          @foreach (var item in Model.OrderItems)
+            {
+               <dl class="row">
+                    <dd>
+                        @Html.DisplayFor(orderItem => item.ProductID)
+                    </dd>
+                    <dd>
+                        @Html.DisplayFor(orderItem => item.Price)
+                    </dd>
+                    <dd>
+                        @Html.DisplayFor(orderItem => item.Count)
+                    </dd>
+                </dl>
+            }
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.OrderID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
